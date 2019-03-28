@@ -116,3 +116,48 @@ int list_sort(NODE *head, int nums)    //pop   链表不适合排序
 	}
 	return 0;
 }
+
+int list_reversal(NODE *head, int nums)
+{
+	if(!head){
+		return -1;
+	}
+
+	int i;
+	NODE *list_node;
+	NODE *list;
+	NODE *node;
+	
+	list = head;
+	list_node = head;
+	
+	for(i=0; i<nums-1; i++){
+		while(list_node->next){
+			list_node = list_node->next;
+		}
+		list_node->next = list->next;
+		list->next = list_node;
+		
+		list = list_node;
+	}
+	list->next->next = NULL;
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
